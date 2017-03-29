@@ -1,5 +1,5 @@
 language: java
-before_script: cd 12f_app
+before_script: 
 script: mvn clean install
 deploy:
   edge: true

@@ -1,5 +1,5 @@
 language: java
-before_script: 
+before_script:  
 script: mvn clean install
 deploy:
   edge: true

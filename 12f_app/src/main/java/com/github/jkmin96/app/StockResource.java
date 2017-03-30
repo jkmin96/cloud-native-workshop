@@ -19,6 +19,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+
 @RestController
 @RequestMapping(value = "/stock", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StockResource {

@@ -17,6 +17,6 @@ public class EnvResource {
 	
 	@RequestMapping(value = "/get-env", method = RequestMethod.GET)
 	public String getEnv(@RequestParam String env) {
-	    return "Env" + " " + environment.getProperty(env);
+	    return "Env:" + " " + environment.getProperty(env);
 	}
 }

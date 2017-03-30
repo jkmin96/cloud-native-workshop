@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.core.env.Environment;
 import org.springframework.http.MediaType;
 
+@RefreshScope
 @RestController
 @RequestMapping(value = "/jk", produces = MediaType.APPLICATION_JSON_VALUE)
 public class EnvResource {

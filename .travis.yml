@@ -3,7 +3,7 @@ before_script: cd 12f_app
 script: mvn clean install
 deploy:
   edge: true
-  on 
+  on:
     all_branches: true
   provider: cloudfoundry
   username: jk.min@sas.com

@@ -3,10 +3,12 @@ before_script: cd 12f_app
 script: mvn clean install
 deploy:
   edge: true
+  on 
+    all_branches: true
   provider: cloudfoundry
   username: jk.min@sas.com
   api: https://api.run.pivotal.io
   organization: jkmin
-  space: development
+  space: stage
   password:
     secure: VTjy4iu8CBpKl+iHFgDZFPcs+ZB2FQd2peTrSlaHU70mGpTS510eBd/3iBtEWVeVzfVN8ab9DZQKKopjbTFmN59ECVbej0IFAWqzpSTJYBmksSLuKLHwfKkIZGfJ6szGBvl7Ax13EzihQqD/ytbB49w0XWyKWahBrFAEhFyItXsrnCXjvFWSZdob4Vy/jyFTqGY5ss3wDgPOESl7ej2LeLYjSIj97RsWj1Y/+GIet4tC0vDLUv4nLC/BcQjVMCmj9R5iaoMX2mIzdm7EG6lsUI1YBxJzDVlQlQYmCWtIGWeBfCEY/YVdCWkLdVHEmZVnBVjQPdfbJfQP2aAQDtvBjmzxMzwFgUCwLJaj+j3iGDoobWuGbfQhbUv3mvdWSNjgMypoiNfZNgCdUThsmJwWxRZn95dIMUVgYaR1Fw3xAps7+Bs0JUKRzzfGcBCbF1ZmBjJefwRp4/K4793c/RJz2XdVzHwhLgcJ56btEi8PqApkSqzFuHDEiKuDAp/iPMKtvYR2Ram6jK7qnP2tVM1veFuVQACCm0jF8rdYv5t/JiUQITjI9XbMievThZBdVqTl76JbOQ4oIPoSDcW/hNPlvqe6KNd4i0eSQnAJO1adPwOgZFFFfHeipgiXjWjgg+fUzFqKLv/BKZp4HhDG3PfrjvFOSvD34nqfUJcr16BVsqw=

@@ -1,7 +1,7 @@
 applications:
 - name: jksprings
   path: target/12f_app-1.0-SNAPSHOT.jar
-  memory: 512M
+  memory: 1024M
   services:
   - my-db
   - my-redis

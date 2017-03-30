@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.github.jkmin96.app.domain.model.StockItem;
 
+
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -36,18 +39,7 @@ public class StockResource {
         return "Ping";
     }
     
-    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public StockItem stockItem(@PathVariable("id") Long id, HttpServletResponse response) {
-
-        StockItem stockItem = stockItemRepository.findOne(id);
-
-        if (stockItem == null) {
-            response.setStatus(HttpStatus.NOT_FOUND.value());
-            return null;
-        }
-
-        return stockItem;
-    }
+   
 
     @RequestMapping(value = "", method = RequestMethod.POST)
     public StockItem storeInStock(@RequestBody StockItem stockItem, HttpServletResponse response) {
@@ -83,6 +75,25 @@ public class StockResource {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Iterable<StockItem> items() {
         return stockItemRepository.findAll();
+    }
+    
+    
+    private static final Logger logger = LoggerFactory.getLogger(StockResource.class);
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}")
+    public StockItem stockItem(@PathVariable("id") Long id, HttpServletResponse response) {
+        logger.info("Starting search of stock item(id={}) search", id);
+
+        StockItem stockItem = stockItemRepository.findOne(id);
+
+        if (stockItem == null) {
+            logger.info("Stock item(id={}) has not been found", id);
+            response.setStatus(HttpStatus.NOT_FOUND.value());
+            return null;
+        }
+
+        logger.info("Finishing search of stock item(id={}) search", id);
+        return stockItem;
     }
     
 }

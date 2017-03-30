@@ -1,0 +1,9 @@
+applications:
+- name: jkeureka
+  path: target/eurena-server-1.0-SNAPSHOT.jar
+  memory: 512M
+  env:
+    eureka.client.register-with-eureka: false
+    eureka.client.fetch-registry: false
+    logging.level.com.netflix.eureka: OFF
+    logging.level.com.netflix.discovery: OFF
